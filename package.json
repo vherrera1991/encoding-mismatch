@@ -1,0 +1,66 @@
+{
+  "name": "encoding-mismatch",
+  "displayName": "Encoding Mismatch",
+  "description": "A Visual Studio Code extension that alerts when the encoding of an open file does not match the defined configuration.",
+  "version": "0.0.1",
+  "icon": "img/logo.png",
+  "author": "Victor Herrera",
+  "publisher": "vmherrera1991",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vherrera1991/encoding-mismatch"
+  },
+  "engines": {
+    "vscode": "^1.108.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+		"encoding",
+		"alert"
+	],
+  "activationEvents": [
+    "onOpenTextDocument",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Encoding Mismatch",
+      "properties": {
+        "encodingMismatch.showErrorMessages": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show warning messages when file encoding doesn't match the configured encoding",
+          "scope": "window"
+        },
+        "encodingMismatch.showStatusBarIndicator": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a status bar indicator when encoding mismatch is detected",
+          "scope": "window"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.108.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.52.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
